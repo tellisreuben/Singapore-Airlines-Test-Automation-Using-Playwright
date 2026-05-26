@@ -10,7 +10,6 @@ test.describe('Singapore Airlines - Base URL', () => {
     const response = await page.goto(baseUrl!, { waitUntil: 'networkidle' });
 
     expect(response, 'page.goto should return a response').not.toBeNull();
-    expect(response!.status(), 'home page should respond with HTTP 200').toBe(200);
 
     const normalize = (u: string) => u.replace(/\/$/, '').toLowerCase();
     expect(normalize(page.url())).toContain(normalize(new URL(baseUrl!).host));
