@@ -4,7 +4,7 @@ const { clickElement, getElementWithText } = objectActions;
 
 
 test('Login into Singapore Airlines', {tag: '@homePage'}, async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto(process.env.BASE_URL?? 'https://www.google.com', { waitUntil: 'networkidle' });
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle('Singapore Airlines Official Website | Book International Flight Tickets');
