@@ -1,7 +1,7 @@
 {
-  "name": "test-playwright",
+  "name": "singapore-airlines-test-automation-using-playwright",
   "version": "1.0.0",
-  "description": "",
+  "description": "Singapore Airlines Test Automation Using Playwright",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
