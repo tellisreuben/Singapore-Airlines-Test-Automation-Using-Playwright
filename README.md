@@ -13,4 +13,8 @@ TEST_USERNAME="_your_username"
 TEST_PASSWORD="_your_password"
 ```
 
+Compile this code using the below in the command line
+```
+Node_Env=staging npx playwright test --ui --project=firefox
+```
 
