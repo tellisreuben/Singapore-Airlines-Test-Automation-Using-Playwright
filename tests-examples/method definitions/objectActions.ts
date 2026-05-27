@@ -1,42 +1,31 @@
-import { test, expect } from '@playwright/test';
+import type { Locator, Page } from '@playwright/test';
 
-function getLocatorById(page, id) {
-  return page.locator(`#${id}`);
+const DEFAULT_TIMEOUT = 5000;
+
+function resolveTimeout(timeout?: number): number {
+  if (typeof timeout === 'number') return timeout;
+  const fromEnv = process.env.DEFAULT_TIMEOUT;
+  return fromEnv ? parseInt(fromEnv, 10) : DEFAULT_TIMEOUT;
 }
 
-function clickElement(locator, timeout = 5000) {
-    return locator.waitFor({ state: 'visible', timeout }).then(() => locator.click(timeout));
+async function clickElement(locator: Locator, timeout: number = DEFAULT_TIMEOUT): Promise<void> {
+  await locator.waitFor({ state: 'visible', timeout });
+  await locator.click({ timeout });
 }
 
-function waitForElementToBeVisible(locator, timeout = 5000) {
-    return locator.waitFor({ state: 'visible', timeout });
+function waitForElementToBeVisible(locator: Locator, timeout: number = DEFAULT_TIMEOUT): Promise<void> {
+  return locator.waitFor({ state: 'visible', timeout });
 }
 
-function getElementWithText(page, textToCompare: string , timeout? : number) {
-   const elements = page.locator('div').waitForElementToBeVisible();
-   let elem, text;
-   if (!timeout) {
-       timeout = process.env.DEFAULT_TIMEOUT ? parseInt(process.env.DEFAULT_TIMEOUT) : 5000     ;
-   }    
-   // Assuming elements is iterable, otherwise you may need to await elements.all() or similar
-   // If elements is a Locator, use locator.allTextContents() or similar Playwright API
-   // Here's an example using Playwright's allTextContents:
-   return elements.allTextContents().then((element: Element[]) => {
-       for (const e of elements) {
-           console.log('Element text: ', e.textContent());
-           console.log(e);
-           if (e.textContent().trim() === textToCompare) {
-               text = e.textContent().trim();
-               elem = e
-               break;
-           }
-       }    
-       return elem;
-   });
+async function getElementWithText(page: Page, textToCompare: string, timeout?: number): Promise<Locator> {
+  const resolved = resolveTimeout(timeout);
+  const element = page.getByText(textToCompare, { exact: true }).first();
+  await element.waitFor({ state: 'visible', timeout: resolved });
+  return element;
 }
 
 export const objectActions = {
   clickElement,
   getElementWithText,
-  waitForElementToBeVisible
+  waitForElementToBeVisible,
 };
