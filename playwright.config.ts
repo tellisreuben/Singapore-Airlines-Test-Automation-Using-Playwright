@@ -56,6 +56,27 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
 
+    /* Define environments in the same config file
+    { 
+    --compile by using 
+     --npx playwright test --ui --project=--project=staging or 
+     --npx playwright test --ui --project=--staging=production
+      name: 'staging',
+      use: {
+        baseURL: 'https://www.singaporeair.com/',
+      },
+      retries: 2,
+    },
+    {
+      name: 'production',
+      use: {
+        baseURL: '"https://www.google.com/"',
+      },
+      retries: 0,
+    },
+
+    */
+
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
