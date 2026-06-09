@@ -12,7 +12,10 @@ test.describe('Singapore Airlines - KrisFlyer Login', () => {
     const username = process.env.TEST_USERNAME!;
     const password = process.env.TEST_PASSWORD!;
 
-    await page.goto(baseUrl, { waitUntil: 'networkidle' });
+    // Note: SIA's homepage never reaches 'networkidle' (continuous chat polling,
+    // analytics and tracking-pixel requests), so wait for the DOM instead and
+    // rely on explicit element waits below.
+    await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
 
     const loginButton = page.getByRole('button', { name: 'Log in to access your account' });
     await loginButton.waitFor({ state: 'visible', timeout: 60000 });
@@ -25,8 +28,8 @@ test.describe('Singapore Airlines - KrisFlyer Login', () => {
     const submit = page.locator('#loginDetailsSection').getByRole('button', { name: 'Log in' });
     await submit.click();
 
-    await page.waitForLoadState('networkidle');
-
+    // Do not wait for 'networkidle' here either; assert directly on the
+    // post-login UI state, which has its own (configured) expect timeout.
     await expect(page.locator('#loginDetailsSection'), 'login dialog should close after successful submission')
       .toBeHidden({ timeout: 60000 });
 

@@ -1,0 +1,14 @@
+- generic [ref=e2]:
+  - iframe [ref=e4]:
+    - generic [active] [ref=f26e1]:
+      - img [ref=f26e3]
+      - table [ref=f26e4]:
+        - rowgroup [ref=f26e5]:
+          - row "Access Blocked You’re seeing this error because we’ve detected unusual browsing activity from your network. We’ll just need to verify that it’s really you sending these requests, and not a bot. To regain access, complete the CAPTCHA below:" [ref=f26e6]:
+            - cell "Access Blocked You’re seeing this error because we’ve detected unusual browsing activity from your network. We’ll just need to verify that it’s really you sending these requests, and not a bot. To regain access, complete the CAPTCHA below:" [ref=f26e7]:
+              - paragraph [ref=f26e8]: Access Blocked
+              - paragraph [ref=f26e9]: You’re seeing this error because we’ve detected unusual browsing activity from your network. We’ll just need to verify that it’s really you sending these requests, and not a bot.
+              - paragraph [ref=f26e10]: "To regain access, complete the CAPTCHA below:"
+  - iframe [ref=e6]:
+    - generic [active] [ref=f27e1]:
+      - main

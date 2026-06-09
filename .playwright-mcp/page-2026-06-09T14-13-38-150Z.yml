@@ -1,0 +1,125 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - link "Plan travel" [ref=e16] [cursor=pointer]:
+            - /url: /en_UK/sg/plan-travel/
+          - link "Flying with us" [ref=e17] [cursor=pointer]:
+            - /url: /en_UK/sg/flying-withus/
+          - link "Travel info" [ref=e18] [cursor=pointer]:
+            - /url: /en_UK/sg/travel-info/
+          - link "PPS Club / KrisFlyer" [ref=e19] [cursor=pointer]:
+            - /url: /en_UK/sg/ppsclub-krisflyer/
+          - link "Corporate" [ref=e20] [cursor=pointer]:
+            - /url: /en_UK/sg/corporate/
+        - generic [ref=e21]:
+          - generic [ref=e25] [cursor=pointer]:
+            - generic [ref=e27]:
+              - button "CHAT" [ref=e31]:
+                - emphasis [ref=e32]
+                - text: CHAT
+              - link "HELP" [ref=e34]:
+                - /url: /en_UK/help-page/
+              - link "FEEDBACK" [ref=e36]:
+                - /url: /feedback-form
+            - generic [ref=e37]:
+              - generic [ref=e39]: Australia
+              - generic [ref=e40]: ·
+              - generic [ref=e41]: English
+          - generic [ref=e46]:
+            - link "Log-in" [ref=e47] [cursor=pointer]:
+              - /url: "#"
+            - link "Sign up" [ref=e48] [cursor=pointer]:
+              - /url: /en_UK/ppsclub-krisflyer/registration-form/
+    - generic [ref=e56] [cursor=pointer]:
+      - generic [ref=e57]:
+        - text: Expand Your Comfort Zone,
+        - text: Expand Your Horizons.
+      - generic [ref=e58]:
+        - text: Follow Maya as she discovers a wider world
+        - text: beyond her comfort zone.
+      - paragraph [ref=e59]:
+        - link "masthead-link" [ref=e60]:
+          - /url: https://www.singaporeair.com/welcome-to-world-class/?itm_source=homepage_masthead_d_pvg
+          - text: DISCOVER MORE
+    - generic [ref=e61]:
+      - generic [ref=e64]:
+        - img "Log-in" [ref=e65]
+        - generic [ref=e66]:
+          - text: Log in to your KrisFlyer account to unlock personalised fare deals, privileges and more. Not a KrisFlyer member?
+          - link "Sign up now" [ref=e67] [cursor=pointer]:
+            - /url: /en_UK/ppsclub-krisflyer/registration-form/
+        - button "Log in" [ref=e68] [cursor=pointer]
+      - generic [ref=e71]:
+        - list [ref=e73] [cursor=pointer]:
+          - listitem [ref=e74]:
+            - generic [ref=e75]: Book trip
+          - listitem [ref=e76]:
+            - generic [ref=e78]: Manage booking
+          - listitem [ref=e79]:
+            - generic [ref=e81]: Check in
+          - listitem [ref=e82]:
+            - generic [ref=e84]: Flight status
+          - listitem [ref=e85]:
+            - generic [ref=e87]: Flight schedule
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e94]: Hi, where would you like to go?
+              - link "Get best flights quicker" [ref=e95] [cursor=pointer]:
+                - /url: /flight-recommender/
+                - generic [ref=e98]: Get best flights quicker
+            - generic [ref=e102]:
+              - checkbox "Try our new booking experience" [ref=e103] [cursor=pointer]
+              - generic [ref=e104] [cursor=pointer]: Try our new booking experience
+              - generic [ref=e105]: BETA
+          - generic [ref=e108]:
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - generic [ref=e113]:
+                  - radio "Book flights" [checked] [ref=e114] [cursor=pointer]
+                  - text: Book flights
+                - generic [ref=e115]:
+                  - radio "Redeem flights" [ref=e116] [cursor=pointer]
+                  - text: Redeem flights
+              - generic [ref=e118]:
+                - link "Apply promo code" [ref=e120] [cursor=pointer]:
+                  - /url: /en_UK/promocode/
+                - link "Multi-city / Stopovers" [ref=e122] [cursor=pointer]:
+                  - /url: /flightsearch/multiCityHome.form
+            - generic [ref=e123]:
+              - generic [ref=e124]:
+                - generic [ref=e127]:
+                  - generic [ref=e130]:
+                    - combobox "From" [ref=e131]: Sydney - SYD
+                    - generic: From
+                    - generic:
+                      - generic: Sydney
+                      - generic: SYD
+                  - generic [ref=e135]:
+                    - combobox "To" [ref=e136]
+                    - generic: To
+                - generic [ref=e141]:
+                  - generic [ref=e143]:
+                    - textbox "Depart Date" [ref=e144] [cursor=pointer]:
+                      - /placeholder: " "
+                    - generic: Depart Date
+                  - generic [ref=e146]:
+                    - textbox "Return Date" [ref=e147] [cursor=pointer]:
+                      - /placeholder: " "
+                    - generic: Return Date
+              - generic [ref=e148]:
+                - generic [ref=e152]:
+                  - combobox "Class" [ref=e153] [cursor=pointer]: Economy
+                  - generic: Class
+                - generic [ref=e157]:
+                  - textbox "Passengers" [ref=e158] [cursor=pointer]:
+                    - /placeholder: " "
+                    - text: 1 Adult
+                  - generic: Passengers
+                - button "Search" [ref=e160] [cursor=pointer]
+  - img [ref=e170]

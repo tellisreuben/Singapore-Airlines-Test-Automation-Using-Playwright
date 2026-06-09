@@ -1,0 +1,185 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - banner [ref=e6]:
+          - generic [ref=e7]:
+            - region "Site logo" [ref=e8]:
+              - link "Singapore Airlines Home Singapore Airlines Logo" [ref=e9] [cursor=pointer]:
+                - /url: /
+                - generic [ref=e10]: Singapore Airlines Home
+                - img "Singapore Airlines Logo" [ref=e11]
+            - generic [ref=e17]:
+              - generic [ref=e18]:
+                - link "Plan travel" [ref=e19] [cursor=pointer]:
+                  - /url: /en_UK/au/plan-travel/
+                - link "Flying with us" [ref=e20] [cursor=pointer]:
+                  - /url: /en_UK/au/flying-withus/
+                - link "Travel info" [ref=e21] [cursor=pointer]:
+                  - /url: /en_UK/au/travel-info/
+                - link "PPS Club & KrisFlyer" [ref=e22] [cursor=pointer]:
+                  - /url: /en_UK/au/ppsclub-krisflyer/
+                - link "Corporate" [ref=e23] [cursor=pointer]:
+                  - /url: /en_UK/au/corporate/
+              - generic [ref=e24]:
+                - generic [ref=e28] [cursor=pointer]:
+                  - generic [ref=e30]:
+                    - button "News Alert Section" [ref=e31]:
+                      - generic [ref=e33]: "2"
+                    - button "Chat with KrisBot" [ref=e37]:
+                      - emphasis [ref=e38]
+                      - text: CHAT
+                    - link "Help" [ref=e40]:
+                      - /url: /en_UK/help-page/
+                    - link "Feedback" [ref=e42]:
+                      - /url: /feedback-form
+                  - button "Australia·English" [ref=e43]: Australia·English
+                - generic [ref=e45]:
+                  - button "Open search" [ref=e49] [cursor=pointer]
+                  - generic [ref=e50]:
+                    - button "Log in to access your account" [ref=e51] [cursor=pointer]: Log in
+                    - link "Sign up for a new account" [ref=e52] [cursor=pointer]:
+                      - /url: /en_UK/ppsclub-krisflyer/registration-form/
+                      - text: Sign Up
+        - generic [ref=e54]:
+          - button "Close" [ref=e55] [cursor=pointer]:
+            - generic [ref=e56]: Close
+          - generic [ref=e59]:
+            - heading "Log in" [level=2] [ref=e61]
+            - generic [ref=e68]:
+              - generic [ref=e69]:
+                - text: The details you have provided do not match our records. Please try again or reset your password. If this does not work,
+                - link "contact Singapore Airlines" [ref=e70] [cursor=pointer]:
+                  - /url: /en_UK/contact-us/
+                - text: for assistance.
+              - button "Show login error help" [ref=e72] [cursor=pointer]
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - radio "KrisFlyer/PPS Club" [checked] [ref=e77] [cursor=pointer]
+                - generic [ref=e78]: KrisFlyer/PPS Club
+              - generic [ref=e79]:
+                - radio "Registered Customer" [ref=e80] [cursor=pointer]
+                - generic [ref=e81]: Registered Customer
+              - generic [ref=e82]:
+                - radio "HighFlyer" [ref=e83] [cursor=pointer]
+                - generic [ref=e84]: HighFlyer
+            - generic [ref=e86]:
+              - generic [ref=e90]:
+                - generic: KrisFlyer number / Email Address
+                - textbox "krisflyernumber" [ref=e91]
+              - generic [ref=e95]:
+                - generic: Password
+                - textbox "password" [ref=e96]
+              - generic [ref=e97]:
+                - generic [ref=e101]: Remember me
+                - link "Reset Password" [ref=e103] [cursor=pointer]:
+                  - /url: /en_UK/ppsclub-krisflyer/reset-pin/
+              - button "Log in" [ref=e105] [cursor=pointer]
+              - link "Forgot your KrisFlyer membership number" [ref=e107] [cursor=pointer]:
+                - /url: /kfRetrieveKFNumber-flow.form
+                - text: Forgot your KrisFlyer membership number
+              - link "Not a KrisFlyer member? Join now" [ref=e110] [cursor=pointer]:
+                - /url: /en_UK/ppsclub-krisflyer/registration-form/
+                - text: Not a KrisFlyer member? Join now
+      - generic [ref=e113]:
+        - paragraph [ref=e115]:
+          - text: By using the website, you are agreeing to our
+          - link "Privacy Policy" [ref=e116] [cursor=pointer]:
+            - /url: /en_UK/privacy-policy/
+          - text: ","
+          - link "Terms & Conditions" [ref=e117] [cursor=pointer]:
+            - /url: /en_UK/terms-conditions/
+          - text: and the use of cookies in accordance with our
+          - link "Cookie Policy" [ref=e118] [cursor=pointer]:
+            - /url: /en_UK/global_footer/cookies-policy/
+          - text: .
+        - button "Accept" [ref=e120] [cursor=pointer]
+    - generic [ref=e128] [cursor=pointer]:
+      - generic [ref=e129]:
+        - text: Expand Your Comfort Zone,
+        - text: Expand Your Horizons.
+      - generic [ref=e130]:
+        - text: Follow Maya as she discovers a wider world
+        - text: beyond her comfort zone.
+      - paragraph [ref=e131]:
+        - link "masthead-link" [ref=e132]:
+          - /url: https://www.singaporeair.com/welcome-to-world-class/?itm_source=homepage_masthead_d_pvg
+          - text: DISCOVER MORE
+    - generic [ref=e133]:
+      - generic [ref=e136]:
+        - img "Log-in" [ref=e137]
+        - generic [ref=e138]:
+          - text: Log in to your KrisFlyer account to unlock personalised fare deals, privileges and more. Not a KrisFlyer member?
+          - link "Sign up now" [ref=e139] [cursor=pointer]:
+            - /url: /en_UK/ppsclub-krisflyer/registration-form/
+        - button "Log in" [ref=e140] [cursor=pointer]
+      - generic [ref=e143]:
+        - list [ref=e145] [cursor=pointer]:
+          - listitem [ref=e146]:
+            - generic [ref=e147]: Book trip
+          - listitem [ref=e148]:
+            - generic [ref=e150]: Manage booking
+          - listitem [ref=e151]:
+            - generic [ref=e153]: Check in
+          - listitem [ref=e154]:
+            - generic [ref=e156]: Flight status
+          - listitem [ref=e157]:
+            - generic [ref=e159]: Flight schedule
+        - generic [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]: Hi, where would you like to go?
+              - link "Get best flights quicker" [ref=e167] [cursor=pointer]:
+                - /url: /flight-recommender/
+                - generic [ref=e170]: Get best flights quicker
+            - generic [ref=e174]:
+              - checkbox "Try our new booking experience" [ref=e175] [cursor=pointer]
+              - generic [ref=e176] [cursor=pointer]: Try our new booking experience
+              - generic [ref=e177]: BETA
+          - generic [ref=e180]:
+            - generic [ref=e183]:
+              - generic [ref=e184]:
+                - generic [ref=e185]:
+                  - radio "Book flights" [checked] [ref=e186] [cursor=pointer]
+                  - text: Book flights
+                - generic [ref=e187]:
+                  - radio "Redeem flights" [ref=e188] [cursor=pointer]
+                  - text: Redeem flights
+              - generic [ref=e190]:
+                - link "Apply promo code" [ref=e192] [cursor=pointer]:
+                  - /url: /en_UK/promocode/
+                - link "Multi-city / Stopovers" [ref=e194] [cursor=pointer]:
+                  - /url: /flightsearch/multiCityHome.form
+            - generic [ref=e195]:
+              - generic [ref=e196]:
+                - generic [ref=e199]:
+                  - generic [ref=e202]:
+                    - combobox "From" [ref=e203]: Melbourne - MEL
+                    - generic: From
+                    - generic:
+                      - generic: Melbourne
+                      - generic: MEL
+                  - generic [ref=e207]:
+                    - combobox "To" [ref=e208]
+                    - generic: To
+                - generic [ref=e213]:
+                  - generic [ref=e215]:
+                    - textbox "Depart Date" [ref=e216] [cursor=pointer]:
+                      - /placeholder: " "
+                    - generic: Depart Date
+                  - generic [ref=e218]:
+                    - textbox "Return Date" [ref=e219] [cursor=pointer]:
+                      - /placeholder: " "
+                    - generic: Return Date
+              - generic [ref=e220]:
+                - generic [ref=e224]:
+                  - combobox "Class" [ref=e225] [cursor=pointer]: Economy
+                  - generic: Class
+                - generic [ref=e229]:
+                  - textbox "Passengers" [ref=e230] [cursor=pointer]:
+                    - /placeholder: " "
+                    - text: 1 Adult
+                  - generic: Passengers
+                - button "Search" [ref=e232] [cursor=pointer]
+  - img [ref=e242]
+  - img "Sojern Image Pixel" [ref=e245]
