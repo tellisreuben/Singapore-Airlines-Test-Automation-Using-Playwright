@@ -50,7 +50,14 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-
+    {
+      name: 'Mobile Chrome',
+       use: { ...devices['Pixel 5'] },
+     },
+     {
+       name: 'Mobile Safari',
+       use: { ...devices['iPhone 12'] },
+    },
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
@@ -59,8 +66,8 @@ export default defineConfig({
     /* Define environments in the same config file
     { 
     --compile by using 
-     --npx playwright test --ui --project=--project=staging or 
-     --npx playwright test --ui --project=--staging=production
+     --npx playwright test --ui --project=staging or 
+     --npx playwright test --ui --project=production
       name: 'staging',
       use: {
         baseURL: 'https://www.singaporeair.com/',

@@ -1,27 +1,124 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+# Cancel superseded runs on the same branch/PR to save CI minutes.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    timeout-minutes: 60
+  # ----------------------------------------------------------------------
+  # GATE 1 — Compile / lint check (fast, fail-first)
+  # Lists tests without running them: fails if a spec doesn't compile or if a
+  # stray `test.only` was committed (forbidOnly is on in playwright.config).
+  # Make this a REQUIRED status check in branch protection.
+  # ----------------------------------------------------------------------
+  lint:
+    name: Compile check
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: lts/*
-    - name: Install dependencies
-      run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Verify specs compile (and no test.only)
+        run: npx playwright test --list
+        env:
+          CI: 'true'
+
+  # ----------------------------------------------------------------------
+  # GATE 2 — E2E tests, sharded in parallel across a matrix.
+  # Each shard runs ~1/4 of the suite; all four must pass.
+  # Make this a REQUIRED status check in branch protection.
+  # ----------------------------------------------------------------------
+  e2e:
+    name: E2E (shard ${{ matrix.shard }}/4)
+    needs: lint                 # gate: only run if compile check passed
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false          # let all shards finish so you see every failure
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests (shard ${{ matrix.shard }}/4)
+        run: npx playwright test --shard=${{ matrix.shard }}/4 --reporter=blob
+        env:
+          CI: 'true'
+          # Injected from GitHub Actions secrets/vars. dotenv does not override
+          # already-set env vars, so these take precedence over any .env file.
+          BASE_URL: ${{ vars.BASE_URL }}
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+      # Each shard uploads a blob report; the merge job combines them.
+      - name: Upload blob report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: blob-report-${{ matrix.shard }}
+          path: blob-report/
+          retention-days: 7
+
+  # ----------------------------------------------------------------------
+  # Merge the sharded blob reports into one HTML report (runs even on failure).
+  # ----------------------------------------------------------------------
+  merge-reports:
+    name: Merge reports
+    needs: e2e
+    if: ${{ !cancelled() }}     # produce a report whether tests passed or failed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Download all blob reports
+        uses: actions/download-artifact@v4
+        with:
+          path: all-blob-reports
+          pattern: blob-report-*
+          merge-multiple: true
+      - name: Merge into HTML report
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
+      - name: Upload merged HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  # ----------------------------------------------------------------------
+  # GATE 3 — Manual approval before "deploy". Only on push to main/master,
+  # only after all E2E shards passed. The approval is enforced by the
+  # `production` Environment (configure Required reviewers in repo Settings).
+  # ----------------------------------------------------------------------
+  deploy:
+    name: Deploy (gated)
+    needs: e2e                  # gate: all shards green
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
+    runs-on: ubuntu-latest
+    environment: production     # <-- manual-approval gate lives here
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy
+        run: echo "All gates passed and approved — deploying..."
+      # Optional post-deploy smoke gate:
+      # - run: npx playwright test tests/smoke --reporter=line
