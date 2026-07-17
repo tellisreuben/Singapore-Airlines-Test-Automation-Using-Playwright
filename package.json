@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "Singapore Airlines Test Automation Using Playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:tag": "playwright test --grep",
+    "test:tag:not": "playwright test --grep-invert",
+    "test:bookflights": "cross-env NODE_ENV=staging playwright test --grep @bookflights --project=firefox",
+    "results": "node scripts/print-results.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.0.0",
+    "cross-env": "^10.1.0"
   },
   "dependencies": {
     "dotenv": "*"

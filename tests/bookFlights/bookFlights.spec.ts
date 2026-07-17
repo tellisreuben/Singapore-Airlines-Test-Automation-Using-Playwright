@@ -16,6 +16,7 @@ test.describe('Test booking flights',() =>{
         {tag: '@bookflights'},
         async({_homePage}) =>{
              await _homePage.goto();
-             await _homePage.verifyOriginAndDestinationControlsVisible();
+             await _homePage.fillOriginAndDestinationPlaces('Sydney','Blr');
+             //await _homePage.verifyOriginAndDestinationControlsVisible();
     })
 });

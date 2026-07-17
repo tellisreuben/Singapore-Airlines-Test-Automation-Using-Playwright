@@ -19,6 +19,11 @@ async verifyOriginAndDestinationControlsVisible(){
      await expect(this.toCity).toBeVisible();
 }
 
+async fillOriginAndDestinationPlaces(origin: string, destination: string){
+     this.verifyOriginAndDestinationControlsVisible();
+     await this.fromCity.fill(origin);
+     await this.toCity.fill(destination);
+}
 // Add any other methods or page functions over here
 
 }
